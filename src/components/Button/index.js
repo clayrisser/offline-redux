@@ -14,7 +14,9 @@ class StyledButton extends Component {
 	get style() {
 		return {
 			...this.props.style,
-			marginBottom: '20px'
+			marginBottom: '20px',
+			width: this.props.full ? '100%' : '50%',
+			backgroundColor: !this.props.full ? '#FF0000' : ''
 		};
 	}
 

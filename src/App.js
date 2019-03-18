@@ -12,10 +12,6 @@ class App extends Component {
 		password: ''
 	};
 
-	componentDidMount() {
-		console.log('user', this.props.user);
-	}
-
 	simpleAction = (event) => {
 		this.props.userLogin(this.state.username, this.state.password);
 	};
@@ -40,7 +36,9 @@ class App extends Component {
 					onChange={(password) => this.setState({ password })}
 				/>
 
-				<Button onClick={this.simpleAction}>Login</Button>
+				<Button full="true" onClick={this.simpleAction}>
+					Login
+				</Button>
 			</div>
 		);
 	}
@@ -48,7 +46,7 @@ class App extends Component {
 	renderLogOut() {
 		return (
 			<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-				<h4>Press Logout to login again</h4>
+				<h4 style={{ marginBottom: '20px' }}>Press Logout to Login Again</h4>
 
 				<Button onClick={this.logOut}>Log Out</Button>
 			</div>
@@ -67,7 +65,7 @@ class App extends Component {
 						smOffset={4}
 						lgOffset={4}
 						mdOffset={4}
-						style={{ padding: '5px', backgroundColor: '#DCDCDC', borderRadius: 5 }}
+						style={{ padding: '5px', backgroundColor: 'transparent', borderRadius: 5, marginTop: '50px' }}
 					>
 						{this.props.user.username ? this.renderLogOut() : this.renderLoginForm()}
 					</Col>

@@ -20,7 +20,7 @@ class StyledTextInput extends Component {
 
 	render() {
 		const props = { ...this.props };
-		return <TextInput {...props} style={this.style} light />;
+		return <TextInput {...props} style={this.style} />;
 	}
 }
 
