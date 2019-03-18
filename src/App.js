@@ -59,12 +59,12 @@ class App extends Component {
 				<Row>
 					<Col
 						xs={12}
-						sm={4}
-						md={4}
+						sm={8}
+						md={6}
 						lg={4}
-						smOffset={4}
+						smOffset={2}
 						lgOffset={4}
-						mdOffset={4}
+						mdOffset={3}
 						style={{ padding: '5px', backgroundColor: 'transparent', borderRadius: 5, marginTop: '50px' }}
 					>
 						{this.props.user.username ? this.renderLogOut() : this.renderLoginForm()}
