@@ -13,6 +13,11 @@ class App extends Component {
 	};
 
 	simpleAction = (event) => {
+		const { username, password } = this.state;
+		if (username === '' || password === '') {
+			alert('username and password need to be entered');
+			return;
+		}
 		this.props.userLogin(this.state.username, this.state.password);
 	};
 
