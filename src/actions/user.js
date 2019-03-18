@@ -7,3 +7,10 @@ export const userLogin = (username, password) => (dispatch) => {
 		}
 	});
 };
+
+export const userLogOut = () => (dispatch) => {
+	dispatch({
+		type: 'USER_LOGOUT',
+		payload: {}
+	});
+};

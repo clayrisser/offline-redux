@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store';
-import './index.css';
+import './index.scss';
+import 'react-flexbox-grid/dist/react-flexbox-grid.css';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { PersistGate } from 'redux-persist/integration/react';

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
-import { userLogin } from './actions/user';
+
+import { userLogin, userLogOut } from './actions/user';
+import { Button, TextInput } from './components';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class App extends Component {
 	state = {
@@ -10,29 +12,78 @@ class App extends Component {
 		password: ''
 	};
 
+	componentDidMount() {
+		console.log('user', this.props.user);
+	}
+
 	simpleAction = (event) => {
-		//	console.log('thist', this.state);
 		this.props.userLogin(this.state.username, this.state.password);
 	};
 
+	logOut = (event) => {
+		this.setState({ username: '', password: '' });
+		this.props.userLogOut();
+	};
+
+	renderLoginForm() {
+		return (
+			<div>
+				<h4 style={{ textAlign: 'center' }}>Welcome to Login Screen</h4>
+				<TextInput
+					value={this.state.username}
+					placeholder="username"
+					onChange={(username) => this.setState({ username })}
+				/>
+				<TextInput
+					value={this.state.password}
+					placeholder="password"
+					onChange={(password) => this.setState({ password })}
+				/>
+
+				<Button onClick={this.simpleAction}>Login</Button>
+			</div>
+		);
+	}
+
+	renderLogOut() {
+		return (
+			<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+				<h4>Press Logout to login again</h4>
+
+				<Button onClick={this.logOut}>Log Out</Button>
+			</div>
+		);
+	}
+
 	render() {
 		return (
-			<div className="App">
-				<input placeholder="username" onChange={(event) => this.setState({ username: event.target.value })} />
-				<input placeholder="password" onChange={(event) => this.setState({ password: event.target.value })} />
-
-				<button onClick={this.simpleAction}>Click Me</button>
-			</div>
+			<Grid fluid>
+				<Row>
+					<Col
+						xs={12}
+						sm={4}
+						md={4}
+						lg={4}
+						smOffset={4}
+						lgOffset={4}
+						mdOffset={4}
+						style={{ padding: '5px', backgroundColor: '#DCDCDC', borderRadius: 5 }}
+					>
+						{this.props.user.username ? this.renderLogOut() : this.renderLoginForm()}
+					</Col>
+				</Row>
+			</Grid>
 		);
 	}
 }
 
 const mapStateToProps = (state) => ({
-	...state
+	user: state.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	userLogin: (username, password) => dispatch(userLogin(username, password))
+	userLogin: (username, password) => dispatch(userLogin(username, password)),
+	userLogOut: () => dispatch(userLogOut())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

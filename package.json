@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "carbon-components": "^9.84.14",
+    "carbon-components-react": "^6.108.0",
+    "carbon-icons": "^7.0.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-flexbox-grid": "^2.1.2",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
@@ -27,6 +31,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "node-sass": "^4.11.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }
