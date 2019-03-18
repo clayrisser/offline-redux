@@ -33,6 +33,7 @@ class App extends Component {
 				<TextInput
 					value={this.state.password}
 					placeholder="password"
+					type="password"
 					onChange={(password) => this.setState({ password })}
 				/>
 
